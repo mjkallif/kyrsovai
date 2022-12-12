@@ -1,0 +1,31 @@
+version: '3'
+services:
+
+  php:
+    ports:
+      - 80:80
+    restart: always
+    build: 
+      context: ./apache
+      dockerfile: Dockerfile
+    links:
+      - db
+    volumes:
+      - ./apache/src:/var/www/html
+  
+
+  db:
+    image: mysql
+    restart: always
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d:ro
+      - db_volume:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=tilt
+    ports:
+      - 8081:3306
+
+volumes:
+  db_volume:
+
+
