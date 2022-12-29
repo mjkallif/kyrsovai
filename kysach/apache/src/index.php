@@ -14,10 +14,10 @@ require 'connenct.php';
         <div>
             <p>Асартимент</p>
             <duv class="menu">
-                <button>худи</button>
-                <button>шляпы</button>
-                <button>джогеры</button>
-                <button>все товары</button>
+                <button onclick="sortHimself()" id="sortHimself()" >худи</button>
+                <button onclick="sortHats()" id="sortHats()">шляпы</button>
+                <button onclick="sortJoggers()" id="sortJoggers()">джогеры</button>
+                <button onclick="sortAll()" id="sortAll()">все товары</button>
             </duv>
         </div>
     </nav>
@@ -33,18 +33,42 @@ require 'connenct.php';
             </div>
             <?php
             $mysqli = new mysqli("db", "root", "tilt", "magazin");
+            $result = $mysqli->query("SELECT * FROM Hats");
+            foreach ($result as $row)
+                echo"<div class='post postHats' style='display: flex;'>
+                <img src='{$row['img']}'>
+                <div>
+                    <h1>{$row['manufacturer']}</h1>
+                    <p>{$row['info_hats']}</p>
+                </div>
+                </div>"
+            ?>
+            <?php
+            $mysqli = new mysqli("db", "root", "tilt", "magazin");
             $result = $mysqli->query("SELECT * FROM Himself");
             foreach ($result as $row)
-                echo"<div class='post'>
+                echo"<div class='post postHimself' style='display: flex;'>
                 <img src='{$row['img']}'>
                 <div>
                     <h1>{$row['manufacturer']}</h1>
                     <p>{$row['info_himself']}</p>
                 </div>
                 </div>"
-            
+            ?>
+            <?php
+            $mysqli = new mysqli("db", "root", "tilt", "magazin");
+            $result = $mysqli->query("SELECT * FROM Joggers");
+            foreach ($result as $row)
+                echo"<div class='post postJoggers style='display: flex;'>
+                <img src='{$row['img']}'>
+                <div>
+                    <h1>{$row['manufacturer']}</h1>
+                    <p>{$row['info_joggers']}</p>
+                </div>
+                </div>"
             ?>
         </div>
+        <script src="./fun.js"></script>
     </main>
 </body>
 </html>

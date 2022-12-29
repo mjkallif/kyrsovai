@@ -60,6 +60,7 @@ ADD FOREIGN KEY Joggers (id_joggers) REFERENCES Joggers (id_joggers);
 ALTER TABLE Product
 ADD FOREIGN KEY Hats (id_hats) REFERENCES Hats (id_hats);
 
+
 INSERT INTO Himself (manufacturer, info_himself, img)
 VALUES
     ('Швецов', 'Очень наджное и хорошее худи', 'http://pngimg.com/uploads/hoodie/hoodie_PNG46.png'),
@@ -71,8 +72,7 @@ INSERT INTO Hats (manufacturer, info_hats, img)
 VALUES
     ('kola', 'Ковбойская шляпа "Настоящий ковбой"', 'https://pngimg.com/uploads/cowboy_hat/cowboy_hat_PNG94.png'),
     ('Саша', 'Шляпа для рыбалки, головные уборы', 'https://ae04.alicdn.com/kf/Sec5f184941eb4391815a6c6b8d6587c6G/-.jpg_640x640.jpg'),
-    ('Бурбон', 'Не крутая шапка', 'https://w7.pngwing.com/pngs/783/879/png-transparent-hat-baseball-cap-bonnet-clothing-red-hat-winter-models-winter-hat-leather-thumbnail.png'),
-    ('kola', 'Шапка снупдога', 'https://s3.mayki.kz/catalog_img/3054/hat/1_2_zoom.png');
+    ('Бурбон', 'Не крутая шапка', 'https://w7.pngwing.com/pngs/783/879/png-transparent-hat-baseball-cap-bonnet-clothing-red-hat-winter-models-winter-hat-leather-thumbnail.png');
 
 
 INSERT INTO Joggers (manufacturer, info_joggers, img)
